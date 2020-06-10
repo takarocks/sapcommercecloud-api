@@ -1,0 +1,423 @@
+{
+	"info": {
+		"_postman_id": "43af91dd-1c76-49dd-92fd-5b3ae763e661",
+		"name": "SAP Commerce Cloud",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getBuilds",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{API_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://portalrotapi.hana.ondemand.com/v2/subscriptions/{{SUBSCRIPTION_CODE}}/builds",
+					"protocol": "https",
+					"host": [
+						"portalrotapi",
+						"hana",
+						"ondemand",
+						"com"
+					],
+					"path": [
+						"v2",
+						"subscriptions",
+						"{{SUBSCRIPTION_CODE}}",
+						"builds"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createBuild",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{API_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"applicationCode\": \"{{BUILD_APPLICATION_CODE}}\",\n  \"branch\": \"{{GIT_BRANCH}}\",\n  \"name\": \"{{BUILD_NAME}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://portalrotapi.hana.ondemand.com/v2/subscriptions/{{SUBSCRIPTION_CODE}}/builds",
+					"protocol": "https",
+					"host": [
+						"portalrotapi",
+						"hana",
+						"ondemand",
+						"com"
+					],
+					"path": [
+						"v2",
+						"subscriptions",
+						"{{SUBSCRIPTION_CODE}}",
+						"builds"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getBuild",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{API_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://portalrotapi.hana.ondemand.com/v2/subscriptions/{{SUBSCRIPTION_CODE}}/builds/{{BUILD_CODE}}",
+					"protocol": "https",
+					"host": [
+						"portalrotapi",
+						"hana",
+						"ondemand",
+						"com"
+					],
+					"path": [
+						"v2",
+						"subscriptions",
+						"{{SUBSCRIPTION_CODE}}",
+						"builds",
+						"{{BUILD_CODE}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getBuildLogs (Use Send and Download)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{API_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://portalrotapi.hana.ondemand.com/v2/subscriptions/{{SUBSCRIPTION_CODE}}/builds/{{BUILD_CODE}}/logs",
+					"protocol": "https",
+					"host": [
+						"portalrotapi",
+						"hana",
+						"ondemand",
+						"com"
+					],
+					"path": [
+						"v2",
+						"subscriptions",
+						"{{SUBSCRIPTION_CODE}}",
+						"builds",
+						"{{BUILD_CODE}}",
+						"logs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getBuildProgress",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{API_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://portalrotapi.hana.ondemand.com/v2/subscriptions/{{SUBSCRIPTION_CODE}}/builds/{{BUILD_CODE}}/progress",
+					"protocol": "https",
+					"host": [
+						"portalrotapi",
+						"hana",
+						"ondemand",
+						"com"
+					],
+					"path": [
+						"v2",
+						"subscriptions",
+						"{{SUBSCRIPTION_CODE}}",
+						"builds",
+						"{{BUILD_CODE}}",
+						"progress"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getDeployments",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{API_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://portalrotapi.hana.ondemand.com/v2/subscriptions/{{SUBSCRIPTION_CODE}}/deployments",
+					"protocol": "https",
+					"host": [
+						"portalrotapi",
+						"hana",
+						"ondemand",
+						"com"
+					],
+					"path": [
+						"v2",
+						"subscriptions",
+						"{{SUBSCRIPTION_CODE}}",
+						"deployments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createDeployment",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{API_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"buildCode\": \"{{BUILD_CODE}}\",\n  \"databaseUpdateMode\": \"{{DEPLOYMENT_DB_UPDATE_MODE}}\",\n  \"environmentCode\": \"{{ENVIRONMENT_CODE}}\",\n  \"strategy\": \"{{DEPLOYMENT_STRATEGY}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://portalrotapi.hana.ondemand.com/v2/subscriptions/{{SUBSCRIPTION_CODE}}/deployments",
+					"protocol": "https",
+					"host": [
+						"portalrotapi",
+						"hana",
+						"ondemand",
+						"com"
+					],
+					"path": [
+						"v2",
+						"subscriptions",
+						"{{SUBSCRIPTION_CODE}}",
+						"deployments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getDeployment",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{API_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://portalrotapi.hana.ondemand.com/v2/subscriptions/{{SUBSCRIPTION_CODE}}/deployments/{{DEPLOYMENT_CODE}}",
+					"protocol": "https",
+					"host": [
+						"portalrotapi",
+						"hana",
+						"ondemand",
+						"com"
+					],
+					"path": [
+						"v2",
+						"subscriptions",
+						"{{SUBSCRIPTION_CODE}}",
+						"deployments",
+						"{{DEPLOYMENT_CODE}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createDeploymentCancellation",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{API_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"rollbackDatabase\": {{DEPLOYMENT_CANCEL_ROLLBACK_DB}}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://portalrotapi.hana.ondemand.com/v2/subscriptions/{{SUBSCRIPTION_CODE}}/deployments/{{DEPLOYMENT_CODE}}/cancellation",
+					"protocol": "https",
+					"host": [
+						"portalrotapi",
+						"hana",
+						"ondemand",
+						"com"
+					],
+					"path": [
+						"v2",
+						"subscriptions",
+						"{{SUBSCRIPTION_CODE}}",
+						"deployments",
+						"{{DEPLOYMENT_CODE}}",
+						"cancellation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getDeploymentCancellationOptions",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{API_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://portalrotapi.hana.ondemand.com/v2/subscriptions/{{SUBSCRIPTION_CODE}}/deployments/{{DEPLOYMENT_CODE}}/cancellationoptions",
+					"protocol": "https",
+					"host": [
+						"portalrotapi",
+						"hana",
+						"ondemand",
+						"com"
+					],
+					"path": [
+						"v2",
+						"subscriptions",
+						"{{SUBSCRIPTION_CODE}}",
+						"deployments",
+						"{{DEPLOYMENT_CODE}}",
+						"cancellationoptions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getDeploymentProgress",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{API_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://portalrotapi.hana.ondemand.com/v2/subscriptions/{{SUBSCRIPTION_CODE}}/deployments/{{DEPLOYMENT_CODE}}/progress",
+					"protocol": "https",
+					"host": [
+						"portalrotapi",
+						"hana",
+						"ondemand",
+						"com"
+					],
+					"path": [
+						"v2",
+						"subscriptions",
+						"{{SUBSCRIPTION_CODE}}",
+						"deployments",
+						"{{DEPLOYMENT_CODE}}",
+						"progress"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
